@@ -1,37 +1,53 @@
 # TechPick NG
 
-A modern Nigerian technology affiliate website that helps people find worthwhile phones, laptops, earbuds, accessories and gaming products available in Nigeria (primarily via Jumia).
+**Find Tech Worth Your Money**
 
-**Tagline:** Find Tech Worth Your Money
-
----
+A clean, modern Nigerian technology affiliate website for phones, laptops, audio, accessories and more. Built with pure HTML, CSS and JavaScript — easy for beginners.
 
 ## How to Open / Run the Website
 
-This is a pure **HTML + CSS + JavaScript** project. No build tools, no Node.js, no database required.
-
-### Option 1 – Easiest (recommended for beginners)
+### Option 1 – Easiest (Double-click)
 1. Download or clone this repository.
-2. Open the folder.
-3. Double-click `index.html` (or right-click → Open with your browser).
+2. Open the folder on your computer.
+3. Double-click `index.html`.
+   - It will open in your browser.
 
-The site works immediately.
+### Option 2 – Local Server (Recommended)
+1. Install [VS Code](https://code.visualstudio.com/) + the free **Live Server** extension.
+2. Open the project folder in VS Code.
+3. Right-click `index.html` → **Open with Live Server**.
 
-### Option 2 – Local server (optional)
-```bash
-python -m http.server 8000
+That’s it. No build step, no npm install, no database.
+
+## Project Structure
+
 ```
-Then open `http://localhost:8000`.
+techhub/
+├── index.html                      → Homepage
+├── phones.html                     → Smartphones category
+├── laptops.html                    → Laptops category
+├── audio.html                      → Audio category
+├── accessories.html                → Accessories category
+├── gaming.html                     → Gaming category
+├── guides.html                     → All guides
+├── reviews.html                    → Reviews listing
+├── compare.html                    → Phone comparison table
+├── best-phones-under-100k.html     → Full article / review page
+├── how-to-choose-laptop.html       → Buying guide page
+├── about.html                      → About + Contact + Newsletter
+├── privacy.html                    → Privacy Policy
+├── terms.html                      → Terms of Use
+├── css/
+│   └── style.css                   → All styles
+├── js/
+│   └── script.js                   → Interactive features + affiliate links
+└── assets/
+    └── images/                     → Place for your own product images
+```
 
----
+## Where to Put Your Jumia Affiliate Links (VERY IMPORTANT)
 
-## Where Are the Jumia Affiliate Links?
-
-All affiliate links are centralized in **one place**:
-
-**File:** `js/script.js`
-
-Look for this clearly marked section at the top:
+Open `js/script.js` and look for this clearly marked section:
 
 ```js
 // ===============================
@@ -41,46 +57,52 @@ Look for this clearly marked section at the top:
 // ===============================
 const AFFILIATE_LINKS = {
   itel_s24: "https://www.jumia.com.ng/catalog/?q=itel+s24",
-  // ... more products
+  tecno_spark_20_pro: "https://www.jumia.com.ng/catalog/?q=tecno+spark+20+pro",
+  // ... etc
 };
 ```
 
-Replace the URLs with your real Jumia affiliate tracking links. All buttons using `data-affiliate="product_key"` will update automatically and open in a new tab.
+Just replace the URLs with your real Jumia affiliate tracking links.  
+Every “Check Price on Jumia →” button will automatically use the new links.
 
----
+All affiliate buttons open in a new tab.
 
 ## How to Change Product Names / Prices
 
-- Article page: `article-best-phones-under-100k.html`
-- Comparison table: `compare.html`
-- Prices are labeled as **examples**. Always tell readers to check current price on Jumia.
-
----
+- Go to the relevant HTML page (e.g. `best-phones-under-100k.html`).
+- Search for the product name or the example price.
+- Edit the text. Prices are clearly marked as examples.
 
 ## How to Add Another Product
 
-1. Add a new key + URL in `AFFILIATE_LINKS` inside `js/script.js`.
-2. Copy an existing product section in the article page.
-3. Use: `<a href="#" class="btn btn-affiliate" data-affiliate="your_key">Check Price on Jumia →</a>`
+1. Copy an existing product card section in the article page.
+2. Change the image, name, specs and the affiliate key.
+3. Add the new key + URL in `js/script.js` under `AFFILIATE_LINKS`.
+
+## How to Add Another Article / Guide
+
+1. Copy `best-phones-under-100k.html` and rename it.
+2. Update the title, content, breadcrumb and meta tags.
+3. Add a link to it from the homepage or guides page.
+
+## Images
+
+- Product images currently use high-quality external placeholders with proper fallbacks.
+- To use your own images, put them in `assets/images/` and update the `src` attributes.
+- Always keep the `alt` text for SEO and accessibility.
+
+## Design Notes
+
+- Dark navy hero sections + white content areas
+- Green primary accent + yellow/orange affiliate buttons
+- Fully responsive (mobile hamburger menu, scrollable comparison table)
+- Clean, professional tech-publication look
+- No fake claims, no invented current prices
+
+## License
+
+© 2026 TechPick NG. All rights reserved.
 
 ---
 
-## How to Add Another Article
-
-1. Copy `article-best-phones-under-100k.html`.
-2. Rename and update content.
-3. Link it from `guides.html`, homepage, etc.
-
----
-
-## Features
-
-- Fully responsive (mobile hamburger menu)
-- Search overlay + back-to-top
-- Affiliate buttons (new tab)
-- Affiliate disclosure
-- Comparison table (horizontal scroll on mobile)
-- Clean modern design matching the reference image
-- No paid services or API keys needed
-
-Built for easy editing by beginners.
+Built for easy editing by beginners. Enjoy promoting great tech in Nigeria!
